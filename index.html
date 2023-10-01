@@ -1,0 +1,223 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impact Questionnaire</title>
+    <meta name="description" content="As a department we decided to carry out a survey where we ask parents questions pertaining our department. ">
+    <meta name="keywords" content="IMPACT, wolim, highfield, questionnaire, Dr Shana, King, Jesus, Tawananyasha, Mukoriwo">
+    <meta name="author" content="WOLIM HIGHFIELD IMPACT">
+    <meta name="theme-color" content="#d7dbff">
+</head>
+<body>
+    
+
+<main>
+
+    <div class="progress">
+        <div></div>
+    </div>
+    <p>Question 1</p>
+    <h2>Please fill in your name:</h2>
+
+    <hr>
+
+    <textarea name="" id="" cols="30" rows="10" placeholder="Type your answer here..."></textarea>
+
+    <button id="next">Next</button>
+    <button id="back" style="margin-top:10px!important;background-color:rgb(156, 156, 156);">Back</button>
+
+</main>
+
+<header>
+    <h1>IMPACT</h1>
+    <h2>Survey</h2>
+    <p>As a department we decided to carry out a survey where we ask parents questions pertaining our department. Please click continue to proceed...</p>
+    <button id="cont">Continue</button>
+</header>
+
+
+    
+</body>
+
+    <style>
+        header{
+            display: flex;
+            background-color: #353535e8;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            height: 100%;
+            color: white;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            align-items: center;
+            padding-top: 30px;
+        }
+        header > h1{
+            font-family: cursive;
+            margin-bottom: 0px;
+        }
+        header > h2, header > p{
+            color: gray;
+            padding-inline: 30px;
+        }
+        header > p{
+            font-size: large;
+            color: whitesmoke;
+        }
+        body:has(header)>main{
+            filter: blur(10px);
+        }
+        body{
+            margin:0px;
+            padding: 0px;
+            background-color:white;
+            background-image: linear-gradient(45deg, #f7f6ff, #d7dbff);
+            background-image: -moz-linear-gradient(45deg, #f7f6ff, #d7dbff);
+            background-image: -webkit-linear-gradient(45deg, #f7f6ff, #d7dbff);
+            font-family: sans-serif, Arial, Helvetica;
+            color: #424242;
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+        p{
+            color: gray;
+            margin: 0px;
+            margin-top: 40px;
+            font-size: small;
+        }
+        h2, h1{
+            margin: 30px;
+            text-align: center;
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+        hr{
+            border: solid 1px #c1c1c175;
+            width: 60%;
+        }
+        textarea{
+            width: 80%;
+            background-color: transparent;
+            border-radius: 5px;
+            border-color: #9e9e9e;
+            box-shadow: none!important;
+            outline: none!important;
+            padding: 15px;
+            margin-top: 40px;
+            font-size: large;
+        }
+        textarea:hover{
+            border-color: rgb(146, 103, 247);
+        }
+        main{
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            align-items: center;
+            padding: 10px;
+            padding-top: 50px;
+            height: 100vh;
+        }
+        div.progress{
+            background-color: rgb(215, 215, 248);
+            border-radius: 10px;
+            width:90%;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            align-items: center;
+            justify-content: flex-start;
+        }
+        div.progress > div{
+            padding: 5px;
+            width: 10%;
+            background-color: rgb(113, 43, 226);
+            border-radius: 10px;
+            margin: 0px;
+        }
+        button{
+            margin-top: 40px;
+            padding: 12px;
+            width: 80%;
+            border-radius: 5px;
+            background-color: rgb(146, 103, 247);
+            color: white;
+            font-weight: bolder;
+            font-size: medium;
+            outline: none!important;
+            box-shadow: none!important;
+            border: none;
+        }
+    </style>
+    <script type="text/javascript">
+
+        try{
+
+            let count = 0;
+            let reply_data = [
+                ["Please fill in your name.",""],
+                ["What do you understand by impact and its purpose in the church?",""],
+                ["Which topics among young people do you think we need to pay attention to?", ""],
+                ["So far have we met your expectations in fulfilling the purpose of Impact and if yes, please give examples and elaborate. If not please do explain how we can improve :)", ""],
+                ["How can we best accommodate these young people coming from various backgrounds. And how can we make them feel at home during our meetings.", ""],
+                ["Were there any aspects of the last meteting that you and your child did not enjoy?", ""],
+                ["Do you have any suggestions for improving the overall experience of the youth meetings?",""],
+                ["Were there any specific bible teachings that your child found impactful?", ""],
+                ["Were there any challenges or issues that you faced as a result of the the last meeting?", ""],
+                ["Are there any specific topics or themes that you would like to see covered in future meetings?", ""],
+                ["Anything else you would like to share with us?", ""]
+            ];
+            let reply = "";
+
+            document.querySelector('main button#next').addEventListener('click', event => {
+                if(count !== 10){
+                    let rep = document.querySelector('textarea').value.replaceAll(`\n`, ' ');
+                    reply_data[count][1] = rep;
+                    count++;
+                    document.querySelector('h2').innerText = reply_data[count][0];
+                    document.querySelector('p').innerText = "Question " + (count + 1);
+                    document.querySelector('.progress').appendChild(document.createElement('div'));
+                    document.querySelector('textarea').value = reply_data[count][1];
+                }else{
+                    document.querySelector('textarea').remove();
+                    document.querySelector('h2').innerText = "Now you can submit your answered questionnaire via Whatsapp, please click submit. ";
+                    document.querySelector('p').innerText = "Thank you!";
+                    document.querySelectorAll('button').forEach((v, k, p) => {v.remove()});
+
+                    reply_data.forEach((v, k, p) => {
+                        reply = reply + `*${v[0]}*` + `\n` + v[1] + `\n\n`;
+                    });
+
+                    let btn = document.createElement('button');
+                    btn.addEventListener('click', event=>{
+                        let link = 'https://wa.me/263786336494?text=';
+                        window.location.href = (link + encodeURI(reply));
+                        console.log(reply);
+                    });
+                    document.querySelector('main').appendChild(btn);
+                    document.querySelector('button').innerText = "Submit";
+                }
+            })
+
+            document.querySelector("main button#back").addEventListener('click', event => {
+                if (!(count<=0)){
+                    count = count - 1;
+                    document.querySelector('h2').innerText = reply_data[count][0];
+                    document.querySelector('textarea').value = reply_data[count][1];
+                    document.querySelector('.progress div').remove();
+                    document.querySelector('p').innerText = "Question " + (count + 1);
+                }
+            })
+
+            document.querySelector('#cont').addEventListener('click', event => {
+                document.querySelector('header').remove();
+            })
+        }catch(e){
+            window.confirm("Error occured : " + e);
+        }
+
+    </script>
+</html>
